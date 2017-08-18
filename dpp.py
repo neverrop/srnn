@@ -1,7 +1,7 @@
 # dpp.py
 import numpy as np
 # import scipy.io as sio
-# d = sio.loadmat('d.mat')['d']
+# d = sio.loadmat('t.mat')['t']
 # da = d.tolist()
 # feats = da[0]
 
@@ -15,7 +15,6 @@ def build_cosine_similary_matrix(items):
             L[i, j] = np.inner(items[i], items[j])/(np.linalg.norm(items[i])*np.linalg.norm(items[j]))
             L[j, i] = L[i, j]
     return L
-
 
 def sample_hierarchy_stream(feats, feature_len, seq_len, rng=np.random):
     """
@@ -61,10 +60,13 @@ def sample_hierarchy_stream(feats, feature_len, seq_len, rng=np.random):
     for i in range(Level):
         if len(samples[i+1]) < seq_len <= len(samples[i]) :
             a1 = sorted(pro[i].items(), key=lambda item: item[1])
-            a1 = a1[-15:]
+            t = int(-(seq_len-2))
+            a1 = a1[t:]
             sa = sorted([i[0] for i in a1])
         #if len(samples[i])<2:
             break
         print "streamDPP (level-%d): %d samples from [%d] ground set, prob:[%.4f-%.4f]" \
               % (i, len(samples[i]), len(feats), min(probs[i][1:]), max(probs[i][1:]))
     return sa
+
+# print sample_hierarchy_stream(feats,4097,20+2)

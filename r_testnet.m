@@ -21,7 +21,7 @@ for dpp = 1:2
             summary_name = '1summary';
             label_txt = strcat(path,user,'/','1lb.txt');
         else
-            load(strcat(path,pa,'cropped__model.mat'));
+            load(strcat(path,pa,'_cropped_model.mat'));
             summary_name = '1cropped_summary';
             label_txt = strcat(path,user,'/','1cropped_lb.txt');
         end
