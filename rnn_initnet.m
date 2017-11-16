@@ -7,12 +7,12 @@ function net = rnn_initnet(varargin)
 
 opts.scale = 1;
 opts.weightDecay = 0.0000001;
-opts.gpu = 0;
+opts.gpu = 1;
 opts.hidden_size = 10;
 opts.input_size = 101;
 opts.max_val = 36.68;
 opts.repeatTrain = 5;
-opts.subsampl = 12;
+opts.subsampl = 17;
 opts = vl_argparse(opts, varargin) ;
 opts
 

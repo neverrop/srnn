@@ -9,7 +9,7 @@ function [seqs,lls,seqsind,llsall] = rnn_gen_album(net,album,dpp,varargin)
 
     % generation, only support CPU
     opts.num = 1; %number of runs
-    opts.length = 22+2;
+    opts.length = 15+2;
     opts.genK = 1000; %number of samples in each run
     opts.showN = 5;
     opts.head = 10;
@@ -130,4 +130,3 @@ function [prob] = fastiterativeOrdSubProb(K,numbersPicked,N,current)
     prob(ind) = ss.*nots;
     %prob = prob(current:N);
 end
-
